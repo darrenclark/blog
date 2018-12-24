@@ -1,0 +1,28 @@
+{{ define "main" }}
+<div class="post-listing">
+  <ul>
+  {{ $posts := (.Pages) }}
+  {{ $len := (len $posts) }}
+
+  {{ range $index, $post := $posts }}
+    <li class="post-listing-post">
+      <h2 class="post-listing-title"><a href="{{.Permalink}}">{{$post.Title}}</a></h2>
+      <p class="post-listing-date">{{$post.Date.Format "Jan 02, 2006"}}</p>
+      <ul class="post-listing-tags">
+        {{ range $post.Param "tags" }}
+          {{ $name := . }}
+          {{ with $.Site.GetPage (printf "/%s/%s" "tags" $name) }}
+              <li><a href="{{ .Permalink }}">#{{ $name }}</a></li>
+          {{ end }}
+        {{ end }}
+      </ul>
+      <p class="post-listing-summary">{{.Summary}}</p>
+      <a class="post-listing-readmore"><a href="{{.Permalink}}">Read More...</a></h2>
+      {{ if ne (add $index 1) $len }}
+      <div class="spacer"></div>
+      {{ end }}
+    </li>
+  {{ end }}
+  </ul>
+</div>
+{{ end }}

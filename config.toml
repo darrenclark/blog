@@ -1,0 +1,7 @@
+baseURL = "http://darrenclark.ca/"
+languageCode = "en-us"
+title = "Darren Clark"
+pygmentsCodefences = true
+
+[permalinks]
+  articles = "/:title"
