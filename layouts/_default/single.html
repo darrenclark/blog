@@ -14,4 +14,49 @@
 <div class="post">
   {{.Content}}
 </div>
+<div class="share">
+  Share on...
+  <ul class="share-icons">
+    <li>
+      <!-- https://stackoverflow.com/a/20262460 -->
+      <a
+        class="share-icon facebook"
+        href="https://www.facebook.com/sharer/sharer.php?{{ (querify "u" .Permalink) | safeURL }}"
+        title="Share on Facebook"
+        target="_blank"
+        onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;">
+        {{ partial "icons/facebook.svg" . }}
+      </a>
+    </li>
+    <li>
+      <a
+        class="share-icon twitter"
+        href="https://twitter.com/share?{{ (querify "url" .Permalink "via" "darrenclark" "text" .Title) | safeURL }}"
+        target="_blank"
+        title="Share on Twitter"
+        onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;">
+        {{ partial "icons/twitter.svg" . }}
+      </a>
+    </li>
+    <li>
+      <a
+        class="share-icon linkedin"
+        href="https://www.linkedin.com/shareArticle?{{ (querify "mini" "true" "url" .Permalink) | safeURL }}"
+        target="_blank"
+        title="Share on LinkedIn"
+        onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=494,width=570');return false;">
+        {{ partial "icons/linkedin.svg" . }}
+      </a>
+    </li>
+    <li>
+      <a
+        class="share-icon reddit"
+        href="https://reddit.com/submit?{{ (querify "url" .Permalink "title" .Title) | safeURL }}"
+        target="_blank"
+        title="Share on Reddit">
+        {{ partial "icons/reddit.svg" . }}
+      </a>
+    </li>
+  </ul>
+</div>
 {{ end }}

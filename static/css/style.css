@@ -226,3 +226,43 @@ ul.tags-page li {
 .tag-post-count {
   color: #aaa;
 }
+
+div.share {
+  margin-top: 40px;
+  color: #aaa;
+  font-size: 10pt;
+  text-align: center;
+}
+
+ul.share-icons {
+  text-align: center;
+  margin-top: 5px;
+  margin: 0;
+}
+
+ul.share-icons li {
+  display: inline-block;
+  margin: 5px;
+}
+
+.share-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.share-icon.facebook svg {
+  fill: #4267b2
+}
+
+.share-icon.twitter svg {
+  fill: #38A1F3
+}
+
+.share-icon.linkedin svg {
+  fill: #0077b5
+}
+
+.share-icon.reddit svg {
+  fill: #ff4500
+}
+
