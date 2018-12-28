@@ -1,8 +1,38 @@
 <html>
 <head>
-  <title>Darren Clark</title>
+  {{ $title := (printf "%s | Darren Clark" .Title) }}
+  {{ $ogtitle := (printf "%s | Darren Clark" .Title) }}
+  {{ if .IsHome }}
+    {{ $title = "Darren Clark" }}
+    {{ $ogtitle = "Darren Clark" }}
+  {{ else if .IsPage }}
+    {{ $title = (printf "%s | Darren Clark" .Title) }}
+    {{ $ogtitle = .Title }}
+  {{ else if eq (.Section) "tags" }}
+    {{ $title = (printf "#%s | Darren Clark" .Page.Data.Term) }}
+    {{ $ogtitle = (printf "Posts tagged #%s" .Page.Data.Term) }}
+  {{ end }}
+
+  <title>{{ $title }}</title>
+
   <link rel="stylesheet" type="text/css" href="/css/style.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="canonical" content="{{ .Permalink }}">
+
+  <meta property="og:title" content="{{ $ogtitle }}">
+  <meta property="og:site_name" content="Darren Clark">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:image" content="{{ .Site.BaseURL }}apple-touch-icon.png" />
+
+  {{ if .IsPage }}
+  <meta property="og:type" content="article">
+  <meta property="og:description" content="{{ .Summary }}">
+  <meta name="description" content="{{ .Summary }}">
+  {{ else }}
+  <meta property="og:type" content="website">
+  {{ end }}
+
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131464577-1"></script>
