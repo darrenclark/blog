@@ -1,4 +1,14 @@
-# Generating favicons from SVG
+```bash
+# create a new post
+hugo new articles/$(date '+%Y-%m-%d')-post-title-here.md
+
+# start a local web server
+hugo serve
+```
+
+# Other
+
+### Generating favicons from SVG
 
 ```bash
 npm install icon-gen -g
