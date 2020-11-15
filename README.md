@@ -1,3 +1,5 @@
+# How-to
+
 ```bash
 # create a new post
 hugo new articles/$(date '+%Y-%m-%d')-post-title-here.md
