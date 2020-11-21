@@ -20,10 +20,16 @@
 ### Medium
 
 - Kubernetes `generateName:`
+- Kubernetes + fzf - shell into pods
 
 ### Long
 
 - Elixir - implementing Access for structs
 - Elixir - implementing GenServer.call
+- Elixir - error kinds
 
+### ???
+
+- idempotency
+- atomic HTTP requests
 
