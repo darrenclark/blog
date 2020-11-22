@@ -15,7 +15,6 @@
 
 ### Short
 
-- macOS `pbcopy` / `pbpaste` commands
 
 ### Medium
 
